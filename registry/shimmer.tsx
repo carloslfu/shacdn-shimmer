@@ -6,12 +6,14 @@ export function Shimmer({
   children,
   shimmerDuration = 0.65,
   asChild = false,
+  style,
   ...props
 }: {
   className?: string;
   children: React.ReactNode;
   shimmerDuration?: number;
   asChild?: boolean;
+  style?: React.CSSProperties;
 } & React.ComponentProps<"div">) {
   const Comp = asChild ? Slot : "div";
 
@@ -21,7 +23,7 @@ export function Shimmer({
         "shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]",
         className
       )}
-      style={{ animationDuration: `${shimmerDuration}s` }}
+      style={{ animationDuration: `${shimmerDuration}s`, ...style }}
       {...props}
     >
       {children}

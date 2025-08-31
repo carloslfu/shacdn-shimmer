@@ -10,26 +10,32 @@
   "files": [
     {
       "path": "registry/shimmer.tsx",
-      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s` }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  style,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n  style?: React.CSSProperties;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s`, ...style }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
       "type": "registry:ui"
     }
   ],
   "css": {
-    "@keyframes shimmer": {
+    "@layer components": {
+      "shimmer-effect": {
+        "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
+        "color": "transparent",
+        "background-repeat": "repeat-x",
+        "background-size": "200% 100%",
+        "-webkit-background-clip": "text",
+        "background-clip": "text",
+        "animation-name": "shimmer-animation",
+        "animation-timing-function": "linear",
+        "animation-iteration-count": "infinite",
+        "display": "inline-block",
+        "position": "relative"
+      }
+    },
+    "@keyframes shimmer-animation": {
       "0%": {
         "background-position": "200% 0"
       },
       "100%": {
         "background-position": "-200% 0"
-      }
-    },
-    "@layer components": {
-      ".shimmer-effect": {
-        "background-image": "linear-gradient(90deg, var(--shimmer-base, #111) 25%, var(--shimmer-highlight, #444) 37%, var(--shimmer-base, #111) 63%)",
-        "background-size": "200% 100%",
-        "animation-name": "shimmer",
-        "animation-timing-function": "linear",
-        "animation-iteration-count": "infinite"
       }
     }
   },
