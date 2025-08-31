@@ -20,23 +20,6 @@
         }
       ],
       "dependencies": ["@radix-ui/react-slot@^1.2.0"],
-      "css": {
-        "@layer components": {
-          ".shimmer-effect": {
-            "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
-            "color": "transparent",
-            "background-repeat": "repeat-x",
-            "background-size": "200% 100%",
-            "-webkit-background-clip": "text",
-            "background-clip": "text",
-            "animation-name": "shimmer-animation",
-            "animation-timing-function": "linear",
-            "animation-iteration-count": "infinite",
-            "display": "inline-block",
-            "position": "relative"
-          }
-        }
-      },
       "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
     }
   ]
