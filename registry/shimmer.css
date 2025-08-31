@@ -1,0 +1,28 @@
+.shimmer-effect {
+  background: linear-gradient(
+    90deg,
+    var(--shimmer-base) 10%,
+    var(--shimmer-highlight) 55%,
+    var(--shimmer-base) 80%
+  );
+  color: transparent;
+  background-repeat: repeat-x;
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation-name: shimmer-effectAnimation;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  position: relative;
+}
+
+@keyframes shimmer-effectAnimation {
+  0% {
+    background-position: 150%;
+  }
+
+  to {
+    background-position: -50%;
+  }
+}

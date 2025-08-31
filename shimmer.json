@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "type": "registry:component",
+  "title": "Shimmer",
+  "description": "Wrap children with a configurable shimmer loading effect.",
+  "files": [
+    {
+      "path": "registry/shimmer.tsx",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/shimmer.css",
+      "type": "registry:css"
+    }
+  ],
+  "dependencies": ["@radix-ui/react-slot@^1.2.0"],
+  "docs": "Make sure your project has the `cn` helper (run `npx shadcn@latest init` or `npx shadcn@latest add utils`). Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
+}
