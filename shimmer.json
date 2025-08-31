@@ -8,12 +8,23 @@
     {
       "path": "registry/shimmer.tsx",
       "type": "registry:component"
-    },
-    {
-      "path": "registry/shimmer.css",
-      "type": "registry:file"
     }
   ],
   "dependencies": ["@radix-ui/react-slot@^1.2.0"],
+  "css": {
+    "@keyframes shimmer": {
+      "0%": { "background-position": "200% 0" },
+      "100%": { "background-position": "-200% 0" }
+    },
+    "@layer components": {
+      ".shimmer-effect": {
+        "background-image": "linear-gradient(90deg, var(--shimmer-base, #111) 25%, var(--shimmer-highlight, #444) 37%, var(--shimmer-base, #111) 63%)",
+        "background-size": "200% 100%",
+        "animation-name": "shimmer",
+        "animation-timing-function": "linear",
+        "animation-iteration-count": "infinite"
+      }
+    }
+  },
   "docs": "Make sure your project has the `cn` helper (run `npx shadcn@latest init` or `npx shadcn@latest add utils`). Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
 }
