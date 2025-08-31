@@ -15,10 +15,8 @@
         }
       ],
       "dependencies": ["@radix-ui/react-slot@^1.2.0"],
-      "cssVars": {
-        "--animate-shimmer-animation-name": "shimmer-animation"
-      },
       "css": {
+        "--animate-shimmer-animation-name": "shimmer-animation",
         "@keyframes shimmer-animation": {
           "0%": { "background-position": "200% 0" },
           "100%": { "background-position": "-200% 0" }

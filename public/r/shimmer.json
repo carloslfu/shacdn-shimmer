@@ -14,8 +14,8 @@
       "type": "registry:ui"
     }
   ],
-  "cssVars": {},
   "css": {
+    "--animate-shimmer-animation-name": "shimmer-animation",
     "@keyframes shimmer-animation": {
       "0%": {
         "background-position": "200% 0"
