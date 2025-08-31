@@ -1,0 +1,37 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer",
+  "type": "registry:ui",
+  "title": "Shimmer",
+  "description": "Wrap children with a configurable shimmer loading effect.",
+  "dependencies": [
+    "@radix-ui/react-slot@^1.2.0"
+  ],
+  "files": [
+    {
+      "path": "registry/shimmer.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s` }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "css": {
+    "@keyframes shimmer": {
+      "0%": {
+        "background-position": "200% 0"
+      },
+      "100%": {
+        "background-position": "-200% 0"
+      }
+    },
+    "@layer components": {
+      ".shimmer-effect": {
+        "background-image": "linear-gradient(90deg, var(--shimmer-base, #111) 25%, var(--shimmer-highlight, #444) 37%, var(--shimmer-base, #111) 63%)",
+        "background-size": "200% 100%",
+        "animation-name": "shimmer",
+        "animation-timing-function": "linear",
+        "animation-iteration-count": "infinite"
+      }
+    }
+  },
+  "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
+}

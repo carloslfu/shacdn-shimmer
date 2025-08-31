@@ -1,0 +1,36 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "shimmer",
+      "type": "registry:ui",
+      "title": "Shimmer",
+      "description": "Wrap children with a configurable shimmer loading effect.",
+      "files": [
+        {
+          "path": "registry/shimmer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@radix-ui/react-slot@^1.2.0"],
+      "css": {
+        "@keyframes shimmer": {
+          "0%": { "background-position": "200% 0" },
+          "100%": { "background-position": "-200% 0" }
+        },
+        "@layer components": {
+          ".shimmer-effect": {
+            "background-image": "linear-gradient(90deg, var(--shimmer-base, #111) 25%, var(--shimmer-highlight, #444) 37%, var(--shimmer-base, #111) 63%)",
+            "background-size": "200% 100%",
+            "animation-name": "shimmer",
+            "animation-timing-function": "linear",
+            "animation-iteration-count": "infinite"
+          }
+        }
+      },
+      "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
+    }
+  ]
+}
