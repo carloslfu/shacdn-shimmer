@@ -42,6 +42,51 @@
         }
       },
       "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
+    },
+    {
+      "name": "shimmer-tw-v3",
+      "type": "registry:ui",
+      "title": "Shimmer (Tailwind v3)",
+      "description": "Wrap children with a configurable shimmer loading effect.",
+      "files": [
+        {
+          "path": "registry/shimmer.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "dependencies": ["@radix-ui/react-slot@^1.2.0"],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "keyframes": {
+                "shimmer-animation": {
+                  "0%": { "background-position": "200% 0" },
+                  "100%": { "background-position": "-200% 0" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "css": {
+        "@layer components": {
+          ".shimmer-effect": {
+            "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
+            "color": "transparent",
+            "background-repeat": "repeat-x",
+            "background-size": "200% 100%",
+            "-webkit-background-clip": "text",
+            "background-clip": "text",
+            "animation-name": "shimmer-animation",
+            "animation-timing-function": "linear",
+            "animation-iteration-count": "infinite",
+            "display": "inline-block",
+            "position": "relative"
+          }
+        }
+      },
+      "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
     }
   ]
 }

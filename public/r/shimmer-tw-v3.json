@@ -1,0 +1,53 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shimmer-tw-v3",
+  "type": "registry:ui",
+  "title": "Shimmer (Tailwind v3)",
+  "description": "Wrap children with a configurable shimmer loading effect.",
+  "dependencies": [
+    "@radix-ui/react-slot@^1.2.0"
+  ],
+  "files": [
+    {
+      "path": "registry/shimmer.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  style,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n  style?: React.CSSProperties;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s`, ...style }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "keyframes": {
+            "shimmer-animation": {
+              "0%": {
+                "background-position": "200% 0"
+              },
+              "100%": {
+                "background-position": "-200% 0"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "css": {
+    "@layer components": {
+      ".shimmer-effect": {
+        "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
+        "color": "transparent",
+        "background-repeat": "repeat-x",
+        "background-size": "200% 100%",
+        "-webkit-background-clip": "text",
+        "background-clip": "text",
+        "animation-name": "shimmer-animation",
+        "animation-timing-function": "linear",
+        "animation-iteration-count": "infinite",
+        "display": "inline-block",
+        "position": "relative"
+      }
+    }
+  },
+  "docs": "Usage: `import { Shimmer } from \"@/components/shimmer\"` then `<Shimmer shimmerDuration={0.8}><span>Loading...</span></Shimmer>`. Override colors via CSS vars: `[--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]`."
+}
