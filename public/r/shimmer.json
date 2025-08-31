@@ -16,7 +16,7 @@
   ],
   "css": {
     "@layer components": {
-      "shimmer-effect": {
+      ".shimmer-effect": {
         "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
         "color": "transparent",
         "background-repeat": "repeat-x",
