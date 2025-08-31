@@ -27,6 +27,9 @@
                 "background-position": "-200% 0"
               }
             }
+          },
+          "animation": {
+            "shimmer-animation-name": "shimmer-animation"
           }
         }
       }
@@ -41,7 +44,7 @@
         "background-size": "200% 100%",
         "-webkit-background-clip": "text",
         "background-clip": "text",
-        "animation-name": "shimmer-animation",
+        "animation-name": "var(--animate-shimmer-animation-name)",
         "animation-timing-function": "linear",
         "animation-iteration-count": "infinite",
         "display": "inline-block",
