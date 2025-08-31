@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 
+import "./shimmer.css";
+
 export function Shimmer({
   className,
   children,

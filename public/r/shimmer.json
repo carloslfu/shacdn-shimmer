@@ -10,24 +10,17 @@
   "files": [
     {
       "path": "registry/shimmer.tsx",
-      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  style,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n  style?: React.CSSProperties;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s`, ...style }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
+      "content": "import { cn } from \"@/lib/utils\";\nimport { Slot } from \"@radix-ui/react-slot\";\n\nimport \"./shimmer.css\";\n\nexport function Shimmer({\n  className,\n  children,\n  shimmerDuration = 0.65,\n  asChild = false,\n  style,\n  ...props\n}: {\n  className?: string;\n  children: React.ReactNode;\n  shimmerDuration?: number;\n  asChild?: boolean;\n  style?: React.CSSProperties;\n} & React.ComponentProps<\"div\">) {\n  const Comp = asChild ? Slot : \"div\";\n\n  return (\n    <Comp\n      className={cn(\n        \"shimmer-effect [--shimmer-base:theme(colors.gray.900)] [--shimmer-highlight:theme(colors.gray.300)]\",\n        className\n      )}\n      style={{ animationDuration: `${shimmerDuration}s`, ...style }}\n      {...props}\n    >\n      {children}\n    </Comp>\n  );\n}\n",
       "type": "registry:ui"
+    },
+    {
+      "path": "registry/shimmer.css",
+      "content": ".shimmer-effect {\n  background: linear-gradient(\n    90deg,\n    var(--shimmer-base) 10%,\n    var(--shimmer-highlight) 55%,\n    var(--shimmer-base) 80%\n  );\n  color: transparent;\n  background-repeat: repeat-x;\n  background-size: 200% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation-name: shimmer-effectAnimation;\n  animation-timing-function: linear;\n  animation-iteration-count: infinite;\n  display: inline-block;\n  position: relative;\n}\n\n@keyframes shimmer-effectAnimation {\n  0% {\n    background-position: 150%;\n  }\n\n  to {\n    background-position: -50%;\n  }\n}\n",
+      "type": "registry:file",
+      "target": "components/ui/shimmer.css"
     }
   ],
-  "cssVars": {
-    "theme": {
-      "--animate-shimmer-animation-name": "shimmer-animation"
-    }
-  },
   "css": {
-    "@keyframes shimmer-animation": {
-      "0%": {
-        "background-position": "200% 0"
-      },
-      "100%": {
-        "background-position": "-200% 0"
-      }
-    },
     "@layer components": {
       ".shimmer-effect": {
         "background": "linear-gradient(90deg, var(--shimmer-base) 10%, var(--shimmer-highlight) 55%, var(--shimmer-base) 80%)",
@@ -36,7 +29,7 @@
         "background-size": "200% 100%",
         "-webkit-background-clip": "text",
         "background-clip": "text",
-        "animation-name": "var(--animate-shimmer-animation-name)",
+        "animation-name": "shimmer-animation",
         "animation-timing-function": "linear",
         "animation-iteration-count": "infinite",
         "display": "inline-block",

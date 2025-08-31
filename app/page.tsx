@@ -1,7 +1,6 @@
 "use client";
 
 import { Shimmer } from "@/registry/shimmer";
-import "@/registry/shimmer.css";
 
 export default function ShimmerPage() {
   return (
