@@ -7,7 +7,7 @@ A custom shadcn/ui component registry providing a beautiful, configurable shimme
 Add the shimmer component to your shadcn/ui project:
 
 ```bash
-npx shadcn@latest add https://carlosgalarza.com/registry/shimmer.json
+npx shadcn@latest add https://carlosgalarza.com/ui/shimmer.json
 ```
 
 ## Prerequisites
@@ -134,7 +134,7 @@ Colors automatically adapt to your theme. Override using Tailwind's color system
 
 ## Registry Information
 
-- **Registry URL**: `https://carlosgalarza.com/registry/shimmer.json`
+- **Registry URL**: `https://carlosgalarza.com/ui/shimmer.json`
 - **Component Type**: `registry:component`
 - **Dependencies**: `@radix-ui/react-slot@^1.2.0`
 - **Files**:
