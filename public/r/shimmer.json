@@ -14,6 +14,11 @@
       "type": "registry:ui"
     }
   ],
+  "cssVars": {
+    "theme": {
+      "--shimmer-animation-name": "shimmer-animation"
+    }
+  },
   "css": {
     "@layer components": {
       ".shimmer-effect": {
@@ -23,7 +28,7 @@
         "background-size": "200% 100%",
         "-webkit-background-clip": "text",
         "background-clip": "text",
-        "animation-name": "shimmer-animation",
+        "animation-name": "var(--shimmer-animation-name)",
         "animation-timing-function": "linear",
         "animation-iteration-count": "infinite",
         "display": "inline-block",
