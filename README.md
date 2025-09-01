@@ -1,6 +1,6 @@
-# Shimmer Component Registry
+# Shimmer Effect for React to use along with shadcn
 
-A custom shadcn/ui component registry providing a beautiful, configurable shimmer loading effect component.
+A custom shadcn/ui component providing a beautiful, configurable shimmer loading effect component.
 
 ## Installation
 
