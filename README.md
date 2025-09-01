@@ -4,6 +4,8 @@
 
 A shimmer effect for React to use along with shadcn. I was dying to get this shimmering effect! I couldn't find it, so I reverse-engineered v0's "thinking" effect and published it as a shadcn component.
 
+Live demo: https://www.carlosgalarza.com/shadcn-shimmer
+
 ## Installation
 
 Add the shimmer component to your shadcn/ui project:
