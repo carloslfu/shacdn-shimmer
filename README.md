@@ -1,6 +1,6 @@
 # shadcn-shimmer
 
-![Shimmer Effect Demo](shadcn-shimmer.png)
+![Shimmer Effect Demo](shadcn-shimmer-img.png)
 
 A shimmer effect for React to use along with shadcn. I was dying to get this shimmering effect! I couldn't find it, so I reverse-engineered v0's "thinking" effect and published it as a shadcn component.
 
