@@ -1,6 +1,8 @@
-# Shimmer Effect for React to use along with shadcn
+# shadcn-shimmer
 
-A custom shadcn/ui component providing a beautiful, configurable shimmer loading effect component.
+![Shimmer Effect Demo](shadcn-shimmer.png)
+
+A shimmer effect for React to use along with shadcn. I was dying to get this shimmering effect! I couldn't find it, so I reverse-engineered v0's "thinking" effect and published it as a shadcn component.
 
 ## Installation
 
